@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samiyah ❤️ Aiden</title>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        text-align: center;
+        color: white;
+    }
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 105, 180, 0.85);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        padding: 15px 0;
+        font-size: 20px;
+        font-weight: bold;
+        z-index: 1000;
+        color: #fff;
+    }
+
+    #datetime {
+        font-size: 14px;
+        margin-top: 5px;
+        font-weight: normal;
+        opacity: 0.9;
+    }
+
+    .container {
+        background: rgba(255, 255, 255, 0.15);
+        padding: 50px 40px;
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        max-width: 520px;
+        margin-top: 120px; /* push below fixed header */
+    }
+
+    h1 {
+        font-size: 24px;
+        margin-bottom: 30px;
+    }
+
+    button {
+        padding: 12px 28px;
+        margin: 10px;
+        border: none;
+        border-radius: 30px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+
+    .yes {
+        background-color: #4CAF50;
+        color: white;
+    }
+
+    .yes:hover {
+        transform: scale(1.1);
+    }
+
+    .no {
+        background-color: #f44336;
+        color: white;
+    }
+
+    .message {
+        margin-top: 20px;
+        font-size: 18px;
+        font-weight: bold;
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    Samiyah ❤️ Aiden
+    <div id="datetime"></div>
+</header>
+
+<div class="container">
+    <h1 id="question">Samiyah… can you picture more dates like this with me? 💕</h1>
+    <div id="buttons">
+        <button class="yes" onclick="answerYes()">Yes 💖</button>
+        <button class="no" onclick="answerNo()">No ❌</button>
+    </div>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+// Live Date & Time
+function updateDateTime() {
+    const now = new Date();
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const date = now.toLocaleDateString(undefined, options);
+    const time = now.toLocaleTimeString();
+    document.getElementById("datetime").innerText = date + " | " + time;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
+
+// Questions
+const questions = [
+"Samiyah… can you picture more dates like this with me? 💕",
+"Do you see us making new memories together, Samiyah?",
+"Can you imagine us growing closer over time?",
+"Would you want consistency with me?",
+"Do you think we could build something healthy together?",
+"Are you open to something long-term with me?",
+"Would you want me by your side this year?",
+"Are you ready to move forward together?",
+"Samiyah… will you be my girlfriend? ❤️"
+];
+
+let currentQuestion = 0;
+
+function answerYes() {
+    currentQuestion++;
+    document.getElementById("message").innerText = "";
+    
+    if (currentQuestion < questions.length) {
+        document.getElementById("question").innerText = questions[currentQuestion];
+    } else {
+        document.getElementById("question").innerText = "YOU SAID YESSSS!! ❤️😭 I'm officially the happiest guy alive!";
+        document.getElementById("buttons").style.display = "none";
+    }
+}
+
+function answerNo() {
+    document.getElementById("message").innerText = "Incorrect answer 😉 Try again, Samiyah 💕";
+}
+</script>
+
+</body>
+</html>
