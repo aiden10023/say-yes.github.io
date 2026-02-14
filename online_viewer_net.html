@@ -6,85 +6,174 @@
 <title>Samiyah ❤️ Aiden</title>
 
 <style>
-    body {
-        font-family: 'Arial', sans-serif;
-        background: linear-gradient(135deg, #ff758c, #ff7eb3);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100vh;
-        margin: 0;
-        text-align: center;
-        color: white;
-    }
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@400;600&display=swap');
 
-    header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background: rgba(255, 105, 180, 0.85);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-        padding: 15px 0;
-        font-size: 20px;
-        font-weight: bold;
-        z-index: 1000;
-        color: #fff;
-    }
+/* Body & Background */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: radial-gradient(ellipse at bottom, #ff758c 0%, #ff7eb3 100%);
+    position: relative;
+    color: white;
+}
 
-    #datetime {
-        font-size: 14px;
-        margin-top: 5px;
-        font-weight: normal;
-        opacity: 0.9;
-    }
+/* Starry Background */
+.star {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: twinkle 3s infinite alternate;
+}
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(0.5); }
+    50% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0.2; transform: scale(0.5); }
+}
 
-    .container {
-        background: rgba(255, 255, 255, 0.15);
-        padding: 50px 40px;
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        max-width: 520px;
-        margin-top: 120px; /* push below fixed header */
-    }
+/* Header */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 105, 180, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 20px 0;
+    font-size: 48px; /* Larger font */
+    font-weight: 600;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    z-index: 1000;
+    color: white;
+}
 
-    h1 {
-        font-size: 24px;
-        margin-bottom: 30px;
-    }
+#datetime {
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: normal;
+    opacity: 0.9;
+    font-family: 'Poppins', sans-serif;
+}
 
-    button {
-        padding: 12px 28px;
-        margin: 10px;
-        border: none;
-        border-radius: 30px;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
+/* Container */
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 60px 50px;
+    border-radius: 30px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    max-width: 550px;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    animation: pulse 2.5s infinite alternate;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 20px 60px rgba(255,105,180,0.4); transform: scale(1); }
+    50% { box-shadow: 0 25px 80px rgba(255,105,180,0.6); transform: scale(1.02); }
+    100% { box-shadow: 0 20px 60px rgba(255,105,180,0.4); transform: scale(1); }
+}
 
-    .yes {
-        background-color: #4CAF50;
-        color: white;
-    }
+/* Question Text */
+h1 {
+    font-size: 32px;
+    line-height: 1.4;
+    margin-bottom: 40px;
+    color: white;
+}
 
-    .yes:hover {
-        transform: scale(1.1);
-    }
+/* Buttons */
+button {
+    padding: 16px 36px;
+    margin: 12px;
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
 
-    .no {
-        background-color: #f44336;
-        color: white;
-    }
+.yes {
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+}
+.yes:hover {
+    transform: scale(1.2) rotate(-2deg);
+    box-shadow: 0 10px 35px rgba(255,105,180,0.6);
+}
 
-    .message {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: bold;
-    }
+.no {
+    background: linear-gradient(135deg, #f44336, #ff6b6b);
+    color: white;
+}
+.no:hover {
+    transform: scale(1.2) rotate(2deg);
+    box-shadow: 0 10px 35px rgba(244,67,54,0.6);
+}
+
+/* Message Text */
+.message {
+    margin-top: 30px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* Floating Hearts */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    opacity: 0.7;
+}
+.heart:before,
+.heart:after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+.heart:before { top: -10px; left: 0; }
+.heart:after { left: 10px; top: 0; }
+
+/* Petals */
+.petal {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 50%;
+    opacity: 0.8;
+    transform: rotate(45deg);
+    pointer-events: none;
+    z-index: 0;
+}
+.petal:before,
+.petal:after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: pink;
+    border-radius: 50%;
+}
+.petal:before { top: -6px; left: 0; }
+.petal:after { left: 6px; top: 0; }
+
 </style>
 </head>
 
@@ -95,7 +184,7 @@
     <div id="datetime"></div>
 </header>
 
-<div class="container">
+<div class="container" id="main-container">
     <h1 id="question">Samiyah… can you picture more dates like this with me? 💕</h1>
     <div id="buttons">
         <button class="yes" onclick="answerYes()">Yes 💖</button>
@@ -137,14 +226,79 @@ function answerYes() {
     
     if (currentQuestion < questions.length) {
         document.getElementById("question").innerText = questions[currentQuestion];
+        document.getElementById("main-container").style.transform = `scale(1.05)`;
+        setTimeout(() => {
+            document.getElementById("main-container").style.transform = `scale(1)`;
+        }, 200);
     } else {
         document.getElementById("question").innerText = "YOU SAID YESSSS!! ❤️😭 I'm officially the happiest guy alive!";
         document.getElementById("buttons").style.display = "none";
+    }
+
+    // Generate petals and sparkles on click
+    for(let i=0;i<10;i++){
+        createPetal();
+        createSparkle();
     }
 }
 
 function answerNo() {
     document.getElementById("message").innerText = "Incorrect answer 😉 Try again, Samiyah 💕";
+}
+
+// Floating Hearts Generator
+function createHeart() {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.style.left = Math.random() * window.innerWidth + 'px';
+    heart.style.animation = `float ${4 + Math.random() * 4}s ease-in forwards`;
+    heart.style.width = 15 + Math.random() * 15 + 'px';
+    heart.style.height = heart.style.width;
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 7000);
+}
+setInterval(createHeart, 500);
+
+// Stars Generator
+for(let i = 0; i < 100; i++){
+    const star = document.createElement('div');
+    star.classList.add('star');
+    star.style.top = Math.random() * window.innerHeight + 'px';
+    star.style.left = Math.random() * window.innerWidth + 'px';
+    star.style.width = 1 + Math.random() * 2 + 'px';
+    star.style.height = star.style.width;
+    star.style.animationDuration = (1 + Math.random()*3) + 's';
+    document.body.appendChild(star);
+}
+
+// Petals and sparkles
+function createPetal() {
+    const petal = document.createElement('div');
+    petal.classList.add('petal');
+    petal.style.left = Math.random() * window.innerWidth + 'px';
+    petal.style.top = '-20px';
+    document.body.appendChild(petal);
+
+    const fallDuration = 3000 + Math.random()*2000;
+    petal.animate([
+        { transform: `translateY(0px) rotate(0deg)`, opacity: 1 },
+        { transform: `translateY(${window.innerHeight + 20}px) rotate(${Math.random()*360}deg)`, opacity: 0 }
+    ], {
+        duration: fallDuration,
+        iterations: 1,
+        easing: 'linear'
+    });
+    setTimeout(() => petal.remove(), fallDuration);
+}
+
+function createSparkle() {
+    const sparkle = document.createElement('div');
+    sparkle.classList.add('star');
+    sparkle.style.width = sparkle.style.height = 2 + Math.random()*2 + 'px';
+    sparkle.style.top = Math.random() * window.innerHeight + 'px';
+    sparkle.style.left = Math.random() * window.innerWidth + 'px';
+    document.body.appendChild(sparkle);
+    setTimeout(() => sparkle.remove(), 1500 + Math.random()*1000);
 }
 </script>
 
